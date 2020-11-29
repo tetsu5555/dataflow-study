@@ -14,8 +14,26 @@ import java.util.Arrays;
 
 public class App {
 
+  private static String getBQString(CustomOptions options) {
+    StringBuilder sb = new StringBuilder();
+    sb.append(options.getProject());
+    sb.append(':');
+    sb.append(options.getDataset());
+    sb.append('.');
+    sb.append(options.getBqTable());
+
+    return sb.toString();
+  }
+
   public static void main(String[] args) {
+
     CustomOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(CustomOptions.class);
+    options.setJobName("hogehogehoge");
+    options.setBqTable("hogehgoe");
+    options.setDataset("hogehoge");
+    System.out.println(getBQString(options));
+
+
     Pipeline pipeline = Pipeline.create(options);
 
     pipeline.apply(TextIO.read().from(options.getInputLocation()))
@@ -27,5 +45,6 @@ public class App {
         .apply(TextIO.write().to(options.getOutputLocation()));
 
     pipeline.run().waitUntilFinish();
+
   }
 }
