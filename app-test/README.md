@@ -12,4 +12,14 @@ mvn compile exec:java -Dexec.mainClass=apptest.App -Dexec.cleanupDaemonThreads=f
     --runner=DataflowRunner \
     --outputLocation=gs://$MY_BUCKET/counts/ \
     --gcpTempLocation=gs://$MY_BUCKET/temp/"
+
+
+mvn compile exec:java -Dexec.mainClass=apptest.App -Dexec.cleanupDaemonThreads=false -Dexec.args=" \
+    --project=$GOOGLE_CLOUD_PROJECT \
+    --runner=DataflowRunner \
+    --outputLocation=gs://$MY_BUCKET/wordcounts/ \
+    --dataset=$BQ_DATASET \
+    --bqTable=$BQ_TABLE \
+    --gcpTempLocation=gs://$MY_BUCKET/temp/"
+
 ```
