@@ -1,0 +1,66 @@
+{
+  "namespace": "apptest.entity",
+  "name": "MassPushLogs",
+  "type": "record",
+  "fields": [
+    {
+      "name": "uid",
+      "type": "string"
+    },
+    {
+      "name": "event_hash",
+      "type": "string"
+    },
+    {
+      "name": "event_name",
+      "type": "string"
+    },
+    {
+      "name": "api_key",
+      "type": "string"
+    },
+    {
+      "name": "encrypted_target",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type" : {
+        "type" : "long",
+        "logicalType" : "timestamp-millis"
+      }
+    },
+    {
+      "name": "mass_push_id",
+      "type": "string"
+    },
+    {
+      "name": "plugin_type",
+      "type": "string"
+    },
+    {
+      "name": "schedule_id",
+      "type": "string"
+    },
+    {
+      "name": "schedule_task_id",
+      "type": "string"
+    },
+    {
+      "name": "error_type",
+      "type": "string"
+    },
+    {
+      "name": "error_code",
+      "type": "string"
+    },
+    {
+      "name": "error_message",
+      "type": "string"
+    },
+    {
+      "name": "values",
+      "type": "string"
+    }
+  ]
+}
